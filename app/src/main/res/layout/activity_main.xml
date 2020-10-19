@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/design_default_color_secondary"
     tools:context=".MainActivity">
 
     <EditText
@@ -15,7 +14,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:ems="10"
-        android:hint="Enter Phone Number"
+        android:inputType="phone"
         android:maxLength="10"
         android:text="8155809569"
         android:textSize="24sp"
@@ -32,8 +31,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:ems="10"
-        android:hint="Enter Text Message"
-        android:inputType="textPersonName"
+        android:inputType="textLongMessage"
         android:maxLength="50"
         android:text="Hello Galani"
         android:textSize="24sp"

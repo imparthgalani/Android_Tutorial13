@@ -35,13 +35,13 @@ public class MainActivity extends AppCompatActivity {
 
     private boolean isCallPermissionAllowed() {
         if (Build.VERSION.SDK_INT >= 23) {
-            if (checkSelfPermission(android.Manifest.permission.CALL_PHONE)
+            if (checkSelfPermission(Manifest.permission.CALL_PHONE)
                     == PackageManager.PERMISSION_GRANTED) {
                 Log.v("TAG", "PERMISSION IS GRANTED");
                 return true;
             } else {
                 Log.v("TAG", "PERMISSION IS REVOKED");
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CALL_PHONE}, 1);
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CALL_PHONE}, 11);
                 return false;
             }
         } else {
@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
     public void call() {
         String phoneNumber = edtNumber.getText().toString();
         Intent intent = new Intent(Intent.ACTION_CALL);
-        intent.setData(Uri.parse("tel" + phoneNumber));
+        intent.setData(Uri.parse("tel:" + phoneNumber));
         startActivity(intent);
     }
 
@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             } else {
                 Log.v("TAG", "PERMISSION IS REVOKED");
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.SEND_SMS}, 2);
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.SEND_SMS}, 12);
                 return false;
             }
         } else {
@@ -88,18 +88,19 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "Message Sent", Toast.LENGTH_SHORT).show();
     }
 
-    public void onRequestPermissionsResult(int requestCode, String permission[], int[] grentResult) {
+    public void onRequestPermissionsResult(int requestCode, String permission[],
+                                           int[] grantResult) {
         switch (requestCode) {
-            case 1:
-                if (grentResult.length > 0
-                        && grentResult[0] == PackageManager.PERMISSION_GRANTED) {
+            case 11:
+                if (grantResult.length > 0
+                        && grantResult[0] == PackageManager.PERMISSION_GRANTED) {
+                    call();
                     Toast.makeText(getApplicationContext(), "PERMISSION GRANTED", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(getApplicationContext(), "PERMISSION DENIED", Toast.LENGTH_SHORT).show();
                 }
                 break;
-
-            case 2:
+            case 12:
 
                 break;
         }
