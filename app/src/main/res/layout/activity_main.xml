@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/purple_200"
     tools:context=".MainActivity">
 
     <EditText
@@ -13,9 +14,11 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
+        android:background="@drawable/square_border"
         android:ems="10"
         android:inputType="phone"
         android:maxLength="10"
+        android:padding="8dp"
         android:text="8155809569"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -30,9 +33,11 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:background="@drawable/square_border"
         android:ems="10"
         android:inputType="textLongMessage"
         android:maxLength="50"
+        android:padding="8dp"
         android:text="Hello Galani"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -56,8 +61,11 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="5dp"
             android:layout_weight="1"
+            android:drawableLeft="@drawable/ic_call"
+            android:gravity="left"
             android:onClick="callToNumber"
             android:text="CALL"
+            android:textColor="#FFFFFF"
             android:textSize="18sp" />
 
         <Button
@@ -66,6 +74,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:layout_weight="1"
+            android:drawableLeft="@drawable/ic_message"
+            android:gravity="left"
             android:onClick="sendTextMessage"
             android:text="SMS"
             android:textSize="18sp" />
